@@ -141,5 +141,5 @@ def messageRecived():
 
 @socketio.on( 'my event' )
 def handle_my_custom_event( json ):
-	print( 'recived my event: ' + str( json ) )
+	# print( 'recived my event: ' + str( json ) )
 	socketio.emit( 'my response', json, callback=messageRecived )
