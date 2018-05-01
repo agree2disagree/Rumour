@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Chat Room</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript" charset="utf-8">
+		var socket;
+		$(document).ready(function() {
+			// connection details
+			var url = 'http://' + document.domain + ':' + location.port + '/private_chat';
+			socket = io.connect(url, {'sync disconnect on unload': true});
+			socket.on('connect', function() {
+				socket.emit('joined_private', {});
+			});
+			socket.on('status', function(data) {
+				$("#messages").append('<li>'+data.msg+'</li>');
+			});
+			// message handling
+			socket.on('message', function(data) {
+				$("#messages").append('<li>'+data.msg+'</li>');
+				console.log('Received message');
+			});
+			// sending text
+			$('#myMessage').keypress(function(e) {
+				var code = e.keyCode || e.which;
+				if (code == 13) {
+					text = $('#myMessage').val();
+					if (text != '') {
+						$('#myMessage').val('');
+						socket.emit('text_private', {msg: text});
+					}
+				}
+			}
+			$('#sendbutton').on('click', function() {
+				text = $('#myMessage').val();
+				if (text != '') {
+					$('#myMessage').val('');
+					socket.emit('text_private', {msg: text});
+				}
+			});
+		});
+		// leave chat
+		function exit_chat() {
+			socket.emit('left_private', {}, function() {
+				socket.disconnect();
+				// go back to the profile
+				window.location.href = "{{ url_for('index') }}";
+			});
+		}
+	</script>
+	<ul id="messages"></ul>
+	<input type="text" id="myMessage">
+	<button id="sendbutton">Send</button>
+
+	<!-- <h1>Flask-SocketIO-Chat: {{ room }}</h1>
+	<textarea id="chat" cols="80" rows="20"></textarea><br><br>
+	<input id="text" size="80" placeholder="Enter your message here"><br><br> -->
+	
+	<a href="#" onclick="exit_chat();">Exit chat</a>
+
+</body>
+</html>

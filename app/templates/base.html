@@ -1,0 +1,18 @@
+<html>
+	<head>
+		{% if title %}
+		<title>
+			{{ title }} - Jinx 
+		</title>
+		{% else %}
+		<title>
+			Welcome to our Jinx account!
+		</title>
+		{% endif %}
+	</head>
+	<body>
+		<div> Jinx: <a href="{{ url_for('index') }}">Home</a></div>
+		<hr>
+		{% block content %}{% endblock %}
+	</body>
+</html>
