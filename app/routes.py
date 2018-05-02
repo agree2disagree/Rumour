@@ -72,8 +72,8 @@ def register():
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
+        {'author': user, 'body': 'Sed sed cursus ligula. Cras non felis magna. Cras eu velit a felis interdum lobortis. Morbi auctor elit a metus faucibus molestie. Etiam libero odio. '},
+        {'author': user, 'body': 'Sed felis orci, vestibulum non dolor ut, laoreet vulputate magna. Nunc dapibus non justo ut suscipit. Vivamus vitae odio id velit tempus laoreet. Ut tincidunt. '}
     ]
     return render_template('user.html', user=user, posts=posts)
 
