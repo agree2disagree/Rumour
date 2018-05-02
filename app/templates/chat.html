@@ -42,13 +42,17 @@
       <div class="col-sm-4">
         <form action="" method="POST">
           <b>Type your message below <span class="glyphicon glyphicon-arrow-down"></span></b>
-          <div class="clearfix" style="margin-top: 5px;"></div>
+          <div class="clearfix" style="margin-top: 15px;"></div>
           <input type="text" class="username form-control" placeholder="User Name" value="{{ username }}">
           <div style="padding-top: 5px;"></div>
           <input type="text" class="message form-control" placeholder="Messages">
           <div style="padding-top: 5px;"></div>
           <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-send"></span> Send</button>
         </form>
+        <!-- <div class="btn btn-block"><a href="{{ url_for('index') }}">Exit chat</a></div> -->
+        <div style="margin-top: 15px">
+          <a href="{{ url_for('index') }}"><b><span class="glyphicon glyphicon-arrow-left"></span> Exit Chat</b></a>
+        </div>
       </div>
     </div>
 

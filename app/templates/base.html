@@ -2,16 +2,16 @@
 	<head>
 		{% if title %}
 		<title>
-			{{ title }} - Jinx 
+			{{ title }} - Rumour 
 		</title>
 		{% else %}
 		<title>
-			Welcome to our Jinx account!
+			Welcome to your Rumour account!
 		</title>
 		{% endif %}
 	</head>
 	<body>
-		<div> Jinx: <a href="{{ url_for('index') }}">Home</a></div>
+		<div> Rumour: <a href="{{ url_for('index') }}">Home</a></div>
 		<hr>
 		{% block content %}{% endblock %}
 	</body>
