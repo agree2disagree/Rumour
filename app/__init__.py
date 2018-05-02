@@ -11,6 +11,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_moment import Moment
 from flask_socketio import SocketIO
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)           #python predefined var set to the name of the module in which it is used, app here is defined as instance of class Flask
 app.config.from_object(Config)  #read and apply config file
@@ -19,6 +20,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 moment = Moment(app)
 socketio = SocketIO(app)
+bootstrap = Bootstrap(app)
 login.login_view = 'login'
 from app import routes          #the routes module needs to import the app variable defined in this script, so putting one of the reciprocal imports at the 
 								#bottom avoids the error that results from the mutual references between these two files.
@@ -26,7 +28,7 @@ from app import routes          #the routes module needs to import the app varia
 
 from app import models          #structure of database
 
-socketio.run( app, debug = True )
+socketio.run( app, debug = False )
 
 # if __name__ == '__main__':
 # 	print("before")
