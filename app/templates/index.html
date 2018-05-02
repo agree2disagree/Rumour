@@ -2,13 +2,25 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+    
     <h1>Hi, {{ current_user.username }}!</h1>
+    
     {% if form %}
     {{ wtf.quick_form(form) }}
     <br>
     {% endif %}
-    {% for post in posts %}
-        {% include '_post.html' %}
-{% endfor %}
+    
+    <h3><p><i> "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..." </i></p></h3>
 	
+    <div style="font-size: 20px">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor tincidunt ligula, eget aliquam elit mollis ac. Cras mauris tellus, malesuada eu sagittis ac, venenatis id ligula. Fusce sagittis dui vel est ornare maximus. Sed euismod, velit a scelerisque porttitor, turpis nulla vulputate mi, non pretium sem ex vitae nibh. In blandit facilisis gravida. Sed id tempus eros. Ut lobortis sed felis quis aliquam. Ut vitae aliquet mi, vitae ullamcorper dolor. Donec ut mi a diam congue egestas. Quisque consectetur orci in tortor efficitur, sit amet faucibus lorem dictum. Aenean consectetur mi sit amet bibendum malesuada. Duis convallis tempus ligula et fringilla.</p>
+
+	<p>Proin ullamcorper justo vel sodales sodales. Nulla facilisi. Nullam semper nulla eget arcu rutrum, nec interdum velit aliquet. Sed dignissim velit quam, nec sagittis velit fermentum eget. Integer sed tempor justo, nec cursus ex. Donec sagittis metus leo, non placerat magna interdum at. Fusce at est ut nunc gravida aliquet non vel arcu.</p>
+
+	<p>Aliquam venenatis quam in lorem venenatis lobortis. Phasellus aliquet diam ipsum, sed ullamcorper eros lobortis sed. Etiam sed lorem nunc. Sed nec semper felis, fringilla auctor arcu. Morbi sed urna massa. Vivamus laoreet iaculis lacinia. Quisque quis nisl id justo dictum mattis. Morbi erat nulla, tristique eu eros quis, feugiat ullamcorper dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean et nunc id mi gravida tincidunt id sit amet purus.</p>
+
+	<p>Sed erat nunc, eleifend a ullamcorper non, luctus a quam. Quisque malesuada ullamcorper arcu ullamcorper egestas. In vulputate suscipit condimentum. Pellentesque sed ultricies tortor, eu cursus massa. Proin libero urna, pretium a arcu vel, accumsan condimentum erat. Duis vitae auctor diam. In non egestas nulla. Aenean lacus lorem, pulvinar ut suscipit sagittis, ullamcorper vel quam.</p>
+
+	<p>Maecenas vel viverra leo. Nulla lectus tellus, congue vitae risus vel, ultrices finibus orci. Nam laoreet tempor est, vel congue arcu tristique efficitur. In nec leo felis. Vestibulum vitae eros sit amet risus aliquam sagittis. Praesent interdum scelerisque nisl, congue ultricies orci condimentum id. Vestibulum faucibus tincidunt nisl eu eleifend. Ut commodo est convallis feugiat dapibus. Etiam ut lorem mauris. Duis vel nulla blandit, placerat diam a, facilisis justo. </p>
+	</div>
 {% endblock %}
